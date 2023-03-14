@@ -5,6 +5,7 @@ type command =
   | SUB
   | MULT
   | DIV
+  | REM
   | POP (* Remove element *)
   | SWAP (* Swap elements *)
 	
@@ -18,6 +19,7 @@ let string_of_command = function
   | SUB -> "SUB" 
   | MULT -> "MULT"
   | DIV -> "DIV"
+  | REM -> "REM"
   | POP -> "POP"
   | SWAP -> "SWAP"
 

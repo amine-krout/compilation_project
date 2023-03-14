@@ -1,6 +1,13 @@
 (* The type of the commands for the stack machine *)
 type command =
-  DefineMe (* Question 4.1 *)
+| PUSH of int
+| ADD
+| SUB
+| MULT
+| DIV
+| REM
+| POP (* Remove element *)
+| SWAP (* Swap elements *)
 
 (* The type for programs *)
 type program = int * command list

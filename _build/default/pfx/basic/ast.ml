@@ -1,12 +1,27 @@
 type command =
-  DefineMe (* Question 4.1 *)
-
+  (* DefineMe (* Question 4.1 *) *)
+  | PUSH of int
+  | ADD
+  | SUB
+  | MULT
+  | DIV
+  | REM
+  | POP (* Remove element *)
+  | SWAP (* Swap elements *)
+	
 type program = int * command list
 
 (* add here all useful functions and types  related to the AST: for instance  string_of_ functions *)
 
 let string_of_command = function
-  | DefineMe -> "to be done"
+  | PUSH n -> "PUSH" ^ string_of_int n 
+  | ADD -> "ADD"
+  | SUB -> "SUB" 
+  | MULT -> "MULT"
+  | DIV -> "DIV"
+  | REM -> "REM"
+  | POP -> "POP"
+  | SWAP -> "SWAP"
 
 let string_of_commands cmds = String.concat " " (List.map string_of_command cmds)
 

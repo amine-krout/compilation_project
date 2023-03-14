@@ -1,10 +1,10 @@
-# dune exec pfx/pfxVM.exe -- pfx/basic/tests/ok_prog.pfx
+# dune exec expr/compiler.exe expr/basic/tests/an_example.expr
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Workspace root:
-# /mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project
+# /mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/Compilation-Project/project
 # Auto-detected concurrency: 12
-$ /usr/bin/ocamlc.opt -config > /tmp/dune_6fc388_output
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_282740_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -13,35 +13,32 @@ $ /usr/bin/ocamlc.opt -config > /tmp/dune_6fc388_output
 #  ; for_host = None
 #  ; fdo_target_exe = None
 #  ; build_dir = In_build_dir "default"
-#  ; toplevel_path = None
+#  ; toplevel_path =
+#      Some External "/home/amine-krout/.opam/default/lib/toplevel"
 #  ; ocaml_bin = External "/usr/bin"
-#  ; ocaml = Ok External "/usr/bin/ocaml"
+#  ; ocaml = Ok External "/home/amine-krout/.opam/default/bin/ocaml"
 #  ; ocamlc = External "/usr/bin/ocamlc.opt"
 #  ; ocamlopt = Ok External "/usr/bin/ocamlopt.opt"
 #  ; ocamldep = Ok External "/usr/bin/ocamldep.opt"
 #  ; ocamlmklib = Ok External "/usr/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "CAML_LD_LIBRARY_PATH" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project/_build/install/default/lib/stublibs"
-#        ; "DUNE_OCAML_HARDCODED" : "/usr/lib"
+#        { "DUNE_OCAML_HARDCODED" : "/home/amine-krout/.opam/default/lib"
 #        ; "DUNE_OCAML_STDLIB" : "/usr/lib/ocaml"
 #        ; "DUNE_SOURCEROOT" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project"
+#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/Compilation-Project/project"
 #        ; "INSIDE_DUNE" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project/_build/default"
-#        ; "MANPATH" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project/_build/install/default/bin"
+#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/Compilation-Project/project/_build/default"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project/_build/install/default/lib"
+#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/Compilation-Project/project/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project/_build/install/default/lib"
+#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/Compilation-Project/project/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/project-skeleton/project/_build/install/default/lib/toplevel"
+#            "/mnt/7a92f30b-3b08-40a9-b47d-72e3bc4975cb/Documents/IMT/LALOG/PROJET/Compilation-Project/project/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_paths = [ External "/usr/lib" ]
+#  ; findlib_paths = [ External "/home/amine-krout/.opam/default/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true

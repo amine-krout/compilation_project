@@ -14,7 +14,52 @@ let step state =
   match state with
   | [], _ -> Error("Nothing to step",state)
   (* Valid configurations *)
-  | DefineMe :: q , stack          -> Ok (q, stack)
+  
+  | PUSH n :: q , stack -> Ok (q, n::stack)
+  
+  | ADD :: q, stack ->
+  ( match stack with 
+    | x :: y :: s -> Ok (q, (x+y) :: s)
+    | _ -> Error("Not enough arguments for add", ([], stack))
+  )
+  
+  | SUB :: q, stack ->
+  ( match stack with 
+    | x :: y :: s -> Ok (q, (x-y) :: s)
+    | _ -> Error("Not enough arguments for sub", ([], stack))
+  ) 
+  
+  | MULT :: q, stack -> 
+  ( match stack with 
+    | x :: y :: s -> Ok (q, (x*y) :: s)
+    | _ -> Error("Not enough arguments for MULT", ([], stack))
+  )
+  
+  | DIV :: q, stack ->
+  ( match stack with 
+    | x :: y :: s -> Ok (q, (x/y) :: s)
+    | _ -> Error("Not enough arguments for DIV", ([], stack))
+  )  
+  
+  | REM :: q, stack -> 
+  ( match stack with
+    | x :: y :: s -> Ok (q, (x mod y) :: s)
+    | _ -> Error("Not Enough arguments for REM", ([], stack))
+  )
+
+  | POP :: q, stack -> 
+  ( match stack with 
+    | _ :: s -> Ok (q, s)
+    | _ -> Error("Empty stack", ([], stack))
+  ) 
+  
+  | SWAP :: q, stack -> 
+  ( match stack with 
+    | x :: y :: s -> Ok (q, y :: x :: s)
+    | _ -> Error("Not enough arguments for SWAP", ([], stack))
+  )
+  
+  (* | DefineMe :: q , stack          -> Ok (q, stack) *)
 
 let eval_program (numargs, cmds) args =
   let rec execute = function
