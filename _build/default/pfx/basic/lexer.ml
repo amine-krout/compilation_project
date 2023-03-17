@@ -217,7 +217,10 @@ let
 
 # 55 "pfx/basic/lexer.mll"
  
-  let rec examine_all lexbuf = 
+  
+  (* Main function commented so the program uses directly the function in the pfxVM.ml *)
+  
+  (* let rec examine_all lexbuf = 
     let result = token lexbuf in 
     print_token result;
     print_string "";
@@ -235,7 +238,7 @@ let
     close_in (input_file)
   with Sys_error _ ->
     print_endline ("Can't find file '" ^ file ^ "'")
-  let _ = Arg.parse [] compile ""
+  let _ = Arg.parse [] compile "" *)
 
 
-# 242 "pfx/basic/lexer.ml"
+# 245 "pfx/basic/lexer.ml"

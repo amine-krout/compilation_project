@@ -53,7 +53,10 @@ rule token = parse
   | _ as c                  { failwith (Printf.sprintf "Illegal character '%c': " c) }
 
 {
-  let rec examine_all lexbuf = 
+  
+  (* Main function commented so the program uses directly the function in the pfxVM.ml *)
+  
+  (* let rec examine_all lexbuf = 
     let result = token lexbuf in 
     print_token result;
     print_string "";
@@ -71,6 +74,6 @@ rule token = parse
     close_in (input_file)
   with Sys_error _ ->
     print_endline ("Can't find file '" ^ file ^ "'")
-  let _ = Arg.parse [] compile ""
+  let _ = Arg.parse [] compile "" *)
 
 }
