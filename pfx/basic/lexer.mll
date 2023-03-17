@@ -1,20 +1,21 @@
 {
-  (* open Parser *)
+  open Parser
   
-  type token = 
+  (* type token = 
   | EOF | ADD | SUB | MUL | DIV | REM | LPAR | RPAR 
-  | INT of int 
+  | INT of int  *)
 
   let print_token = function 
-  | EOF   -> print_string "EOF" 
-  | ADD   -> print_string "ADD"
-  | SUB   -> print_string "SUB"
-  | MUL   -> print_string "MUL"
-  | DIV   -> print_string "DIV"
-  | REM   -> print_string "REM"
-  | LPAR  -> print_string "LPAR"
-  | RPAR  -> print_string "RPAR"
-  | INT n -> print_int n
+  | EOF   -> print_string "EOF " 
+  | ADD   -> print_string "ADD "
+  | SUB   -> print_string "SUB "
+  | MUL   -> print_string "MUL "
+  | DIV   -> print_string "DIV "
+  | REM   -> print_string "REM "
+  | POP   -> print_string "POP "
+  | SWAP  -> print_string "SWAP "
+  | PUSH  -> print_string "PUSH "
+  | INT n -> print_int n ; print_string " " 
 
   let mk_int nb =
     try INT (int_of_string nb)
@@ -39,13 +40,15 @@ rule token = parse
   | digit+ as nb           { mk_int nb }
   (* commands  *)
   (***** TO COMPLETE *****)
-  | "+"  {ADD}
-  | "-"  {SUB}
-  | "*"  {MUL}
-  | "/"  {DIV}
-  | "%"  {REM}
-  | "("  {LPAR}
-  | ")"  {RPAR}
+  | "add"  {ADD}
+  | "sub"  {SUB}
+  | "mul"  {MUL}
+  | "div"  {DIV}
+  | "rem"  {REM}
+  | "pop"  {POP}
+  | "swap" {SWAP}
+  | "push" {PUSH}
+
   (* illegal characters *)
   | _ as c                  { failwith (Printf.sprintf "Illegal character '%c': " c) }
 

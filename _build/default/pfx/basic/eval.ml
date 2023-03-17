@@ -20,19 +20,19 @@ let step state =
   | ADD :: q, stack ->
   ( match stack with 
     | x :: y :: s -> Ok (q, (x+y) :: s)
-    | _ -> Error("Not enough arguments for add", ([], stack))
+    | _ -> Error("Not enough arguments for ADD", ([], stack))
   )
   
   | SUB :: q, stack ->
   ( match stack with 
     | x :: y :: s -> Ok (q, (x-y) :: s)
-    | _ -> Error("Not enough arguments for sub", ([], stack))
+    | _ -> Error("Not enough arguments for SUB", ([], stack))
   ) 
   
-  | MULT :: q, stack -> 
+  | MUL :: q, stack -> 
   ( match stack with 
     | x :: y :: s -> Ok (q, (x*y) :: s)
-    | _ -> Error("Not enough arguments for MULT", ([], stack))
+    | _ -> Error("Not enough arguments for MUL", ([], stack))
   )
   
   | DIV :: q, stack ->

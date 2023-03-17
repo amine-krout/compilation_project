@@ -3,7 +3,7 @@ type command =
 | PUSH of int
 | ADD
 | SUB
-| MULT
+| MUL
 | DIV
 | REM
 | POP (* Remove element *)

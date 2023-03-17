@@ -16,7 +16,7 @@ let rec generate (e : Ast.expression) : BasicPfx.Ast.command list =
     (match op with 
      | BinOp.Badd -> [ADD]
      | BinOp.Bsub -> [SUB]
-     | BinOp.Bmul -> [MULT]
+     | BinOp.Bmul -> [MUL]
      | BinOp.Bdiv -> [DIV]
      | BinOp.Bmod -> [REM]
     )

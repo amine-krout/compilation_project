@@ -3,7 +3,7 @@ type command =
   | PUSH of int
   | ADD
   | SUB
-  | MULT
+  | MUL
   | DIV
   | REM
   | POP (* Remove element *)
@@ -17,7 +17,7 @@ let string_of_command = function
   | PUSH n -> "PUSH" ^ string_of_int n 
   | ADD -> "ADD"
   | SUB -> "SUB" 
-  | MULT -> "MULT"
+  | MUL -> "MULT"
   | DIV -> "DIV"
   | REM -> "REM"
   | POP -> "POP"
