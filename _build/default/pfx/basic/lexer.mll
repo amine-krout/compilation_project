@@ -1,6 +1,7 @@
 {
   open Parser
-  
+  (* open Location *)
+
   (* type token = 
   | EOF | ADD | SUB | MUL | DIV | REM | LPAR | RPAR 
   | INT of int  *)
@@ -51,6 +52,13 @@ rule token = parse
 
   (* illegal characters *)
   | _ as c                  { failwith (Printf.sprintf "Illegal character '%c': " c) }
+  (* Exercice 7 - Locationg Errors *)
+  (* Commented because it generates in error while building ::: Unbound module Location *)
+  (* | _ as c {
+    let loc = Location.curr lexbuf in
+    let msg = Printf.sprintf "Illegal character '%c'" c in
+    raise (Location.Error (msg, loc))
+  } *)
 
 {
   

@@ -1,12 +1,12 @@
 {
   open Parser
-  (* open Location *)
-
+  (* open Location  *)
+  
   (* type token = 
   | EOF | ADD | SUB | MUL | DIV | REM | LPAR | RPAR 
   | INT of int  *)
 
-  let print_token = function 
+  (* let print_token = function 
   | EOF   -> print_string "EOF " 
   | ADD   -> print_string "ADD "
   | SUB   -> print_string "SUB "
@@ -16,7 +16,8 @@
   | POP   -> print_string "POP "
   | SWAP  -> print_string "SWAP "
   | PUSH  -> print_string "PUSH "
-  | INT n -> print_int n ; print_string " " 
+  | INT n -> print_int n ; print_string " "  *)
+
 
   let mk_int nb =
     try INT (int_of_string nb)
@@ -49,16 +50,14 @@ rule token = parse
   | "pop"  {POP}
   | "swap" {SWAP}
   | "push" {PUSH}
+  (* extending the lexer to support functions and applications *)
+  | "("    {SEQ_START}
+  | ")"    {SEQ_END}
+  | "exec" {EXEC}
+  | "get"  {GET}
 
   (* illegal characters *)
   | _ as c                  { failwith (Printf.sprintf "Illegal character '%c': " c) }
-  (* Exercice 7 - Locationg Errors *)
-  (* Commented because it generates in error while building ::: Unbound module Location *)
-  (* | _ as c {
-    let loc = Location.curr lexbuf in
-    let msg = Printf.sprintf "Illegal character '%c'" c in
-    raise (Location.Error (msg, loc))
-  } *)
 
 {
   

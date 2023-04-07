@@ -6,7 +6,7 @@ open Ast
   | Uminus _ -> failwith "To implement"
   | Var _ -> failwith "Not yet supported" *)
 
-
+  
 let rec generate (e : Ast.expression) : BasicPfx.Ast.command list = 
   match e with 
   | Const n -> [PUSH n] 

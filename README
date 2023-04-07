@@ -1,28 +1,22 @@
 AUTHORS
 -------
 
-- NAME1
-- NAME2
-…
+- KROUT Mohamed Amine
+- ROMDHANI Mohamed Mokhtar
 
 ===============
 
 Description of the project
 --------------------------
 
-This μ-project is a very simple compiler…
+The project consists in implementing a compiler that takes a program written in a high-level language called expr and translates it into a low-level language called pfx. The expr language is a simple expression language that supports arithmetic operations, variables, and function definitions. The pfx language, on the other hand, is a stack-based language that operates on a stack of values and performs operations by pushing and popping values from the stack.
 
 ===============
 
 Sources
 -------
 
-Git repository: https://redmine-df.telecom-bretagne.eu/git/PROJECTNAME
-
-(obviously, you _will_ use a version control system such as Git, IMT
-Atlantique provides a project management platform: use it!)
-
-Release : tag 1.0 or commit acdeacdacdacdacd
+Git repository: https://github.com/amine-krout/compilation_project.git
 
 ===============
 
@@ -31,7 +25,7 @@ How to…
 
 …retrieve the sources?
 
-  git clone https://redmine-df.telecom-bretagne.eu/git/PROJECTNAME
+  git clone https://github.com/amine-krout/compilation_project.git
 
 …compile?
 
@@ -41,104 +35,117 @@ How to…
 
   dune utop and then use the libraries
   (from project root) dune exec expr/main.exe -- expr/basic/tests/an_example.expr
-  dune exec ./pfxVM.exe -- TESTFILE.pfx -a 12 -a 52
-
+  dune exec pfx/pfxVM.exe -- pfx/basic/tests/ok_prog.pfx -a 12 -a 52
 
 ===============
 
 Structure of the project
 ------------------------
 
-The project is organized as following:
+The project consists of two main parts: the expr compiler and the pfx virtual machine.
 
-Explain here the organization of your project, what is the use of each file or
-group of files, etc.
+The expr compiler is responsible for taking input in the expr language and compiling it into an equivalent program in the pfx language. It includes a lexer and parser for expr, as well as modules for evaluating expr expressions and converting expr code into pfx code.
 
-You may also show the file tree as the following example:
+The pfx virtual machine is responsible for executing programs in the pfx language. It includes a lexer and parser for pfx, as well as modules for evaluating pfx expressions and executing pfx code.
 
-project
-├── README
+Additionally, the project includes a location module for representing locations in source code and a binOp module for defining binary operators used in both expr and pfx. The utils folder contains these modules as well as a dune file for building the project.
+
+The project is organized into subdirectories for each part, with separate dune files for building each part. The basic subdirectories for each part contain modules that are common to both the expr and pfx compilers. Finally, the project includes a README file with information on how to use the compilers and run the tests.
+
+Here is the file tree of the project :
+
+├── _build
+│   ├── default
+│   │   ├── dune-project
+│   │   ├── expr
+│   │   ├── pfx
+│   │   ├── README
+│   │   └── utils
+│   └── log
 ├── dune-project
-├── expr: the expr compiler
-│   ├── README
-│   ├── basic
-│   │   ├── ast.ml
-│   │   ├── ast.mli
-│   │   ├── dune
-│   │   ├── eval.ml
-│   │   ├── eval.mli
-│   │   ├── lexer.mll
-│   │   ├── parser.mly
-│   │   ├── tests: for tests
-│   │   │   └── an_example.expr
-│   │   ├── toPfx.ml             <- To edit
-│   │   └── toPfx.mli
-│   ├── common
-│   │   ├── binOp.ml
-│   │   ├── binOp.mli
-│   │   └── dune
-│   ├── compiler.ml: main file for the expr compiler
-│   ├── dune
-│   ├── fun: the expr parser for section 7
-│   │   ├── ast.ml
-│   │   ├── ast.mli
-│   │   ├── lexer.mll
-│   │   └── parser.mly
-│   └── main.ml
-├── pfx: the pfx VM
-│   ├── basic
-│   │   ├── ast.ml               <- To edit
-│   │   ├── ast.mli
-│   │   ├── dune
-│   │   ├── eval.ml              <- To edit
-│   │   ├── eval.mli
-│   │   ├── lexer.mll            <- To edit
-│   │   ├── parser.mly           <- To edit
-│   │   └── tests: for tests
-│   │       └── ok_prog.pfx
-│   └── pfxVM.ml: main file for the pfx VM
+├── expr
+│   ├── basic
+│   │   ├── ast.ml
+│   │   ├── ast.mli
+│   │   ├── dune
+│   │   ├── eval.ml
+│   │   ├── eval.mli
+│   │   ├── lexer.mll
+│   │   ├── parser.mly
+│   │   ├── tests
+│   │   ├── toPfx.ml
+│   │   └── toPfx.mli
+│   ├── common
+│   │   ├── binOp.ml
+│   │   ├── binOp.mli
+│   │   └── dune
+│   ├── compiler.ml
+│   ├── dune
+│   ├── fun
+│   │   ├── ast.ml
+│   │   ├── ast.mli
+│   │   ├── lexer.mll
+│   │   ├── parser.mly
+│   │   ├── toPfx.ml
+│   │   └── toPfx.mli
+│   ├── main.ml
+│   └── README
+├── pfx
+│   ├── basic
+│   │   ├── ast.ml
+│   │   ├── ast.mli
+│   │   ├── dune
+│   │   ├── eval.ml
+│   │   ├── eval.mli
+│   │   ├── lexer.mll
+│   │   ├── parser.mly
+│   │   └── tests
+│   ├── dune
+│   ├── fun
+│   │   ├── ast.ml
+│   │   ├── ast.mli
+│   │   ├── eval.ml
+│   │   ├── eval.mli
+│   │   ├── lexer.mll
+│   │   ├── parser.mly
+│   │   └── tests
+│   └── pfxVM.ml
+├── README
 └── utils
     ├── dune
-    ├── location.ml: module offering a data type for a location in a file
+    ├── location.ml
     └── location.mli
+
 ===============
 
 Progress
 --------
 
-- We stopped at question 10.1 (proof of derivation)
-- There is still a bug in question 8.3 (new version of generate function)
-- …
+- We stopped at question 12 (proof of derivation)
+- There is still some ambiguities in questions 10.3 and 11.2
 
 ===============
 
 Know bugs and issues
 --------------------
 
-- We were not able to manage xxx…
-- Compiler fails when xxx…
-- …
+- We were not able to test functional part of the pfx that supports the lambda calculus.
 
 ===============
 
 Helpful resources
 -----------------
 
-- we used Stack Overflow to solve the problem of xxx :
-  https://stackoverflow/xxxxxxi
-  https://stackoverflow/yyyyyy
-- someone on GitHub provided an interesting example very similar to the answer of the question x.y : https://github.com/xxxx
-- …
+- Ocaml Documentation : https://www.ocaml.org/docs
+- Dune Documentation : https://dune.readthedocs.io/en/stable/index.html
+- Errors debugging and documentation : https://stackoverflow.com/ && https://chat.openai.com/chat
 
 ===============
 
 Difficulties
 ------------
 
-- team programming: having to use a VCS such as git and avoiding conflicts
-- thinking functional
-- changing habits by using an unknown language
-- Not a single difficulty: the project was so easy that my 8-old brother did it
-  completely; the Ocaml language is so nice I enjoyed the project, …
-- …
+- We faced some difficulties with exercise 7 (Locating Errors)
+- We didn't used git for sharing code just to stay away from merging errors that we've already faced in other projects
+- The project was challenging especially that we've no experience with the OCaml language and it was really a good experience.
 
