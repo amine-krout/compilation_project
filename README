@@ -37,6 +37,10 @@ How to…
   (from project root) dune exec expr/main.exe -- expr/basic/tests/an_example.expr
   dune exec pfx/pfxVM.exe -- pfx/basic/tests/ok_prog.pfx -a 12 -a 52
 
+…open answers to the non-code-related questions ?
+  
+  The answers are provided in a pdf file within the source code named "non-code-related_questions.pdf". You can either open it externally or install the PDF Viewer extension.
+
 ===============
 
 Structure of the project
